@@ -41,6 +41,14 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 BOARD_HAS_QCOM_WCNSS := true
 BOARD_HAS_NFC := true
 
+# Dex2oat optimizations
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.sys.fw.dex2oat_thread_count=4
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.dex2oat-swap=false
+
 # Inherit from msm8226-common
 $(call inherit-product, device/lge/msm8226-common/msm8226.mk)
 $(call inherit-product, vendor/lge/w7/w7-vendor.mk)
