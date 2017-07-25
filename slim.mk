@@ -9,7 +9,7 @@ $(call inherit-product, vendor/slim/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit device specific
-$(call inherit-product, device/lge/w7/device_w7.mk)
+$(call inherit-product, device/lge/w7/device.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := LG L90

@@ -22,7 +22,7 @@
 #
 
 
-# Common specific options in device_w7.mk
+# Common specific options in device.mk
 -include device/lge/msm8226-common/BoardConfigCommon.mk
 
 # Vendor Init
