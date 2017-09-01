@@ -42,7 +42,7 @@ BOARD_HAS_QCOM_WCNSS := true
 BOARD_HAS_NFC := true
 
 # Dex2oat optimizations
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.fw.dex2oat_thread_count=4
 
 PRODUCT_PROPERTY_OVERRIDES += \
