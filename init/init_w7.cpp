@@ -32,10 +32,12 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
-#include "vendor_init.h"
+#include <android-base/properties.h>
 #include "property_service.h"
-#include "log.h"
-#include "util.h"
+#include "vendor_init.h"
+
+using android::base::GetProperty;
+using android::init::property_set;
 
 void property_override(char const prop[], char const value[])
 {
@@ -61,7 +63,7 @@ bool check_cmdline(const std::string &param){
 }
 
 void vendor_load_properties() {
-    std::string serial = property_get("ro.boot.serialno");
+    std::string serial = GetProperty("ro.boot.serialno", "");
 
     if (serial.substr(0,6) ==  "LGD410") {
         /* D410, D410hn */
@@ -109,7 +111,6 @@ void vendor_load_properties() {
         property_set("persist.multisim.config", "");
     }
 
-    std::string device = property_get("ro.product.device");
+    std::string device = GetProperty("ro.product.device", "");
 
-    ERROR("Found hardware id: %s setting build properties for %s device\n", serial.c_str(), device.c_str());
 }
